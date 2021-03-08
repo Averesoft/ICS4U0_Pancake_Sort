@@ -7,12 +7,13 @@ import java.util.*;
 public class PancakeSort {
     static int current_size;
     static ArrayList<Integer> list = new ArrayList<Integer>();
-    static void flip(int front) {
-        for (int i = front; i < front+(current_size-front)/2; i++) {
+    static void flip(int end) {
+        for (int i = 0; i <= end/2; i++) {
             int temp = list.get(i);
-            list.set(i, list.get(current_size - (i-front+1)));
-            list.set(current_size - (i-front+1), temp);
+            list.set(i, list.get(end-i));
+            list.set(end-i, temp);
         }
+        
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -41,15 +42,6 @@ public class PancakeSort {
         current_size = N;
         while(current_size > 0) {
             int max = -1, idx = -1;
-            System.out.println("Array at " + (N-current_size+1));
-            for (int i : list) {
-                Syxstem.out.print(i + " ");
-            }
-            System.out.println();
-            if (list.get(current_size-1) == current_size) {
-                current_size--;
-                continue;
-            }
             for (int i = 0; i < current_size; i++) {
                 if (list.get(i) > max) {
                     max = list.get(i);
@@ -57,6 +49,12 @@ public class PancakeSort {
                 }
             }
             flip(idx);
+            flip(current_size-1);
+            System.out.println("Array After " + (N-current_size+1) + " iterations");
+            for (int i : list) {
+                System.out.print(i + " ");
+            }
+            System.out.println();
             current_size--;
         }
     }
