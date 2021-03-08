@@ -13,7 +13,6 @@ public class PancakeSort {
             list.set(i, list.get(end-i));
             list.set(end-i, temp);
         }
-        
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -50,7 +49,7 @@ public class PancakeSort {
             }
             flip(idx);
             flip(current_size-1);
-            System.out.println("Array After " + (N-current_size+1) + " iterations");
+            System.out.println("Array After " + (N-current_size+1) + " iterations of flips: ");
             for (int i : list) {
                 System.out.print(i + " ");
             }
