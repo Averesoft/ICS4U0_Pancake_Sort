@@ -38,6 +38,11 @@ public class PancakeSort {
             list.add(i);
         }
         Collections.shuffle(list);
+        System.out.println("Original Shuffled Array: ");
+        for (int i : list) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
         current_size = N;
         while(current_size > 1) {
             int max = -1, idx = -1;
