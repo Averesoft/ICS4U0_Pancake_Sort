@@ -39,7 +39,7 @@ public class PancakeSort {
         }
         Collections.shuffle(list);
         current_size = N;
-        while(current_size > 0) {
+        while(current_size > 1) {
             int max = -1, idx = -1;
             for (int i = 0; i < current_size; i++) {
                 if (list.get(i) > max) {
